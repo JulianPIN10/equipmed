@@ -1,0 +1,416 @@
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Evita barras de desplazamiento no deseadas */
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #0046e1;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.user-container {
+margin-top: 20px;
+}
+
+.menu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 10px; /* Espacio adicional para el nombre de usuario */
+  position: relative; /* Asegura que el botón de cierre esté posicionado correctamente */
+}
+
+.logo-container {
+  text-align: center; /* Alinea el logo y el nombre de usuario en el centro */
+}
+
+.logo {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 10px; /* Espacio entre el logo y el nombre de usuario */
+}
+
+.username {
+  font-size: 18px;
+  color: #ecf0f1;
+
+}
+
+.menu-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.menu-items li {
+  margin: 10px 0; /* Reduce el margen para mejorar el ajuste */
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.menu-items li i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.menu-items li.active,
+.menu-items li:hover {
+  background-color: #ffffff;
+  color: #12229d;
+}
+
+.logout-button {
+  margin-top: auto;
+  background-color: #12229d;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  width: 100%;
+  margin-top: 4%;
+  cursor: pointer;
+  font-size: 16px;
+  
+}
+
+.close-menu {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #5cb6f9;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.content {
+  margin-left: 290px; /* Espacio suficiente para el menú lateral */
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+  overflow: auto; /* Permite el desplazamiento si el contenido es largo */
+}
+
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .close-menu {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .content {
+    margin-left: 0; /* Elimina el margen para el contenido en pantallas pequeñas */
+    padding: 10px; /* Reduce el padding para pantallas pequeñas */
+  }
+  .logo-container {
+    text-align: center; /* Alinea el logo y el nombre de usuario en el centro */
+    margin-top: 40px;
+  }
+}
+
+
+
+
+/*____________________________________________________________________________________________________________________________________--*/
+
+
+
+
+
+/*OPCION INICIO*/
+
+
+
+/* Estilos para toda la página */
+.welcome-container {
+  background: linear-gradient(to right, rgba(1, 22, 66, 0.767) 100%, rgba(255, 255, 255, 0)),
+  url('/assets/img/img-inicio.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* Estilos para el mensaje de bienvenida */
+.welcome-message {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  text-align: center;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+/* Estilo del título */
+h1 {
+  font-size: 36px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Estilo de los párrafos */
+p {
+  font-size: 18px;
+  color: #34495e;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+____________________________________________________________________________________________________________________________________
+
+
+/*OPCION 2*/
+.form-container {
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 150px;
+  margin-top: -80px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-opcion2 {
+  padding: 0rem 4rem;
+}
+
+h1 {
+  text-align: center;
+  color: #12229d;
+  text-transform: none;
+}
+
+.titulo-3 {
+  font-size: 24px;
+  font-weight: 550;
+  color: #050a30;
+}
+
+.titulo-opcion2 {
+  font-size: 40px;
+  letter-spacing: 0;
+  margin-bottom: -20px;
+}
+
+.parrafo-opcion2 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  color: #34495e;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 100px;
+}
+
+.container-date {
+  margin-bottom: 50px;
+  margin-right: 70px;
+}
+
+.container-enviar {
+  align-items: center;
+  justify-content: center;
+  margin-left: 25%;
+}
+
+.action-button, .action-button2 {
+  background-color: #12229d;
+  color: #ffffff;
+  padding: 20px 30%;
+  border: 3px solid #ffffff;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.action-button:hover, .action-button2:hover {
+  background-color: #ffffff;
+  color: #12229d;
+  border: 3px solid #12229d;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio horizontal y vertical entre los elementos */
+  margin-bottom: 20px; /* Añadir espacio entre las filas */
+}
+
+.short-field {
+  flex: 1;
+  min-width: 180px;
+  margin-right: 20px; /* Añadir espacio entre los campos de una fila */
+}
+
+.short-field:last-child {
+  margin-right: 0; /* Elimina el margen en el último campo de la fila */
+}
+
+select {
+  width: 100%;
+  padding: 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .short-field {
+    margin-right: 0; /* Asegura que no haya margen extra en columnas */
+    margin-bottom: 20px; /* Espacio entre campos cuando están en columna */
+  }
+
+  .action-button, .action-button2 {
+    padding: 15px 20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .short-field {
+    min-width: 100%;
+  }
+
+  h1.titulo-opcion2 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .titulo-3 {
+    font-size: 1.2rem;
+  }
+
+  .parrafo-opcion2 {
+    font-size: 0.9rem;
+  }
+
+
+  .content {
+   
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+    overflow: auto; /* Permite el desplazamiento si el contenido es largo */
+  }
+  
+  .form-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 70px;
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .container-date {
+    margin-bottom: 0px;
+    margin-right: 0px;
+  }
+
+  .container-opcion2 {
+    margin-left: 0px;
+    padding: 0;
+    width:90%;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Mejora para dispositivos móviles */
+@media (max-width: 768px) {
+  .welcome-message {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+

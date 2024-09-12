@@ -1,0 +1,57 @@
+<div class="container">
+    <!-- Menú lateral -->
+    <div [class.sidebar-open]="isMenuOpen" class="sidebar">
+      <div class="menu-header">
+        <div class="logo-container">
+          <img src="assets/img/logo-equipmed.png" alt="Logo" class="logo" />
+        </div>
+        <button (click)="toggleMenu()" class="close-menu">&#10005;</button>
+      </div>
+  <div class="user-container">
+      <span class="username">{{ username }}</span>
+    </div>
+    <ul class="menu-items">
+      <li (click)="selectOption('option1')" [class.active]="selectedOption === 'option1'">
+        <i class="fa fa-home"></i> Inicio <!-- Icono de casa para la opción de inicio -->
+      </li>
+      <li (click)="selectOption('option2')" [class.active]="selectedOption === 'option2'">
+        <i class="fa fa-pencil-square-o"></i> Reportes <!-- Icono de lápiz y papel para emitir un reporte -->
+      </li>
+    </ul>
+    
+    
+      <button (click)="logout()" class="logout-button">Cerrar sesión</button>
+    </div>
+  
+    <!-- Botón hamburguesa solo en móvil -->
+    <button (click)="toggleMenu()" class="hamburger" *ngIf="!isMenuOpen">
+      &#9776;
+    </button>
+  
+    <!-- Contenido dinámico -->
+    <div class="content">
+      <ng-container *ngIf="selectedOption === 'option1'">
+     
+        <div class="welcome-container">
+          <div class="welcome-message">
+            <h1>Bienvenido, {{ username }}!</h1>
+            <p>Nos alegra verte de nuevo. Estamos aquí para ayudarte a resolver cualquier problema técnico que se presente.</p>
+            <p>Selecciona una opción del menú para comenzar.</p>
+          </div>
+        </div>
+  
+  
+  
+      </ng-container>
+      <ng-container *ngIf="selectedOption === 'option2'">
+  
+        
+      /*Miguel aqui va la tabla que realizaras con la base de datos*/
+        
+      </ng-container>
+      <ng-container *ngIf="selectedOption === 'option3'">
+        <p>Aqui ponen la tabla para mostrar lo de la base de datos</p>
+      </ng-container>
+    </div>
+  </div>
+  

@@ -1,0 +1,176 @@
+<div class="container">
+  <!-- Menú lateral -->
+  <div [class.sidebar-open]="isMenuOpen" class="sidebar">
+    <div class="menu-header">
+      <div class="logo-container">
+        <img src="assets/img/logo-equipmed.png" alt="Logo" class="logo" />
+      </div>
+      <button (click)="toggleMenu()" class="close-menu">&#10005;</button>
+    </div>
+<div class="user-container">
+    <span class="username">{{ username }}</span>
+  </div>
+  <ul class="menu-items">
+    <li (click)="selectOption('option1')" [class.active]="selectedOption === 'option1'">
+      <i class="fa fa-home"></i> Inicio <!-- Icono de casa para la opción de inicio -->
+    </li>
+    <li (click)="selectOption('option2')" [class.active]="selectedOption === 'option2'">
+      <i class="fa fa-pencil-square-o"></i> Emitir reporte <!-- Icono de lápiz y papel para emitir un reporte -->
+    </li>
+    <li (click)="selectOption('option3')" [class.active]="selectedOption === 'option3'">
+      <i class="fa fa-folder-open-o"></i> Reportes generados <!-- Icono de carpeta abierta para reportes generados -->
+    </li>
+  </ul>
+  
+  
+    <button (click)="logout()" class="logout-button">Cerrar sesión</button>
+  </div>
+
+  <!-- Botón hamburguesa solo en móvil -->
+  <button (click)="toggleMenu()" class="hamburger" *ngIf="!isMenuOpen">
+    &#9776;
+  </button>
+
+  <!-- Contenido dinámico -->
+  <div class="content">
+    <ng-container *ngIf="selectedOption === 'option1'">
+   
+      <div class="welcome-container">
+        <div class="welcome-message">
+          <h1>¡Bienvenido, {{ username }}!</h1>
+          <p>Nos alegra tenerte de vuelta. Tu experiencia es clave para mantener todo en funcionamiento.</p>
+          <p>Selecciona una tarea del menú para comenzar a resolver los problemas técnicos pendientes.</p>
+          
+        </div>          
+      </div>
+
+
+
+    </ng-container>
+    <ng-container *ngIf="selectedOption === 'option2'">
+
+      
+      
+      <div class="form-container">
+        <h1 class="titulo-opcion2">Formulario de Servicio Técnico</h1>
+        <p class="parrafo-opcion2">Introduce los datos para generar reportes de los equipos, incluyendo número de serie, fecha y detalles clave.</p>
+        
+        <div class="container-opcion2">
+          <form [formGroup]="technicalForm" (ngSubmit)="onSubmit()">
+            <!-- Información de las fechas -->
+            <h3 class="titulo-3">1. Fechas</h3>
+            <div class="row">
+              <div class="form-group short-field">
+                <label for="fechaRecepcion">Fecha de Recepción</label>
+                <input id="fechaRecepcion" type="date" formControlName="fechaRecepcion" required />
+              </div>
+              <div class="form-group short-field">
+                <label for="fechaServicio">Fecha de Servicio</label>
+                <input id="fechaServicio" type="date" formControlName="fechaServicio" required />
+              </div>
+              <div class="form-group short-field">
+                <label for="fechaSalida">Fecha de Salida</label>
+                <input id="fechaSalida" type="date" formControlName="fechaSalida" required />
+              </div>
+            </div>
+      
+            <!-- Información del Cliente -->
+            <h3 class="titulo-3">2. Información del Cliente</h3>
+            <div class="form-group">
+              <label for="cliente">Cliente</label>
+              <input id="cliente" type="text" formControlName="cliente" required />
+            </div>
+            <div class="form-group">
+              <label for="direccionCliente">Dirección del Cliente</label>
+              <input id="direccionCliente" type="text" formControlName="direccionCliente" required />
+            </div>
+            <div class="form-group">
+              <label for="numeroReporte">Número de Reporte</label>
+              <input id="numeroReporte" type="text" formControlName="numeroReporte" required />
+            </div>
+      
+            <!-- Identificación del Equipo -->
+            <h3 class="titulo-3">3. Identificación del Equipo</h3>
+            <div class="row">
+              <div class="form-group short-field">
+                <label for="tipoEquipo">Tipo de Equipo</label>
+                <input id="tipoEquipo" type="text" formControlName="tipoEquipo" required />
+              </div>
+              <div class="form-group short-field">
+                <label for="marca">Marca</label>
+                <input id="marca" type="text" formControlName="marca" required />
+              </div>
+              <div class="form-group short-field">
+                <label for="modelo">Modelo</label>
+                <input id="modelo" type="text" formControlName="modelo" required />
+              </div>
+              <div class="form-group short-field">
+                <label for="serie">Serie</label>
+                <input id="serie" type="text" formControlName="serie" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ubicacion">Ubicación</label>
+              <input id="ubicacion" type="text" formControlName="ubicacion" required />
+            </div>
+      
+            <!-- Identificación del Daño -->
+            <h3 class="titulo-3">Identificación del Daño</h3>
+            <div class="form-group">
+              <label for="danio">Descripción del Daño</label>
+              <textarea id="danio" formControlName="danio" required></textarea>
+            </div>
+      
+            <!-- Tipo de Mantenimiento -->
+            <h3 class="titulo-3">Tipo de Mantenimiento</h3>
+            <div class="form-group">
+              <label for="tipoMantenimiento">Tipo de Mantenimiento</label>
+              <select id="tipoMantenimiento" formControlName="tipoMantenimiento" required>
+                <option value="Correctivo">Correctivo</option>
+                <option value="Preventivo">Preventivo</option>
+              </select>
+            </div>
+      
+            <!-- Procedimiento Realizado -->
+            <h3 class="titulo-3">Procedimiento Realizado</h3>
+            <div class="form-group">
+              <label for="procedimiento">Procedimiento Realizado</label>
+              <textarea id="procedimiento" formControlName="procedimiento" required></textarea>
+            </div>
+      
+            <!-- Observaciones -->
+            <h3 class="titulo-3">Observaciones</h3>
+            <div class="form-group">
+              <label for="observaciones">Observaciones</label>
+              <textarea id="observaciones" formControlName="observaciones"></textarea>
+            </div>
+      
+            <!-- Elaborado por y Responsable -->
+            <div class="row">
+              <div class="form-group short-field">
+                <label for="elaboradoPor">Elaborado por</label>
+                <input id="elaboradoPor" type="text" formControlName="elaboradoPor" required />
+              </div>
+              <div class="form-group short-field">
+                <label for="responsable">Responsable del Equipo</label>
+                <input id="responsable" type="text" formControlName="responsable" required />
+              </div>
+            </div>
+      
+            <!-- Botón de Enviar -->
+            <div class="container-enviar">
+              <button type="submit" class="action-button">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+     
+      
+      
+    </ng-container>
+    <ng-container *ngIf="selectedOption === 'option3'">
+      <p>Aqui ponen la tabla para mostrar lo de la base de datos</p>
+    </ng-container>
+  </div>
+</div>

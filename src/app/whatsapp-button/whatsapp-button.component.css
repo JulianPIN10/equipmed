@@ -1,0 +1,61 @@
+/* whatsapp-button.component.css */
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #5cb6f9;
+    color: #050a30;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    animation: pulso-whatsapp 1s infinite;
+  }
+  
+  .float:hover {
+    text-decoration: none;
+    color: #050a30;
+    background-color: #fff;
+  }
+  
+  .my-float {
+    margin-top: 16px;
+  }
+  
+  .joinchat__button__open {
+    animation: pulso-whatsapp 1s infinite;
+  }
+  
+  @keyframes pulso-whatsapp {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(26, 165, 235, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 30px rgba(26, 51, 244, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(88, 214, 141, 0);
+    }
+  }
+  
+  /* Ajustes para dispositivos móviles */
+  @media (max-width: 480px) {
+    .float {
+      width: 50px;
+      height: 50px;
+      right: 15px; /* Mover más a la derecha */
+      bottom: 20px; /* Mover más abajo */
+      font-size: 24px; /* Ajustar el tamaño de la fuente */
+    }
+  
+    .my-float {
+      margin-top: 12px; /* Ajustar la posición del ícono dentro del botón */
+    }
+  }
+  

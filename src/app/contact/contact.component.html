@@ -1,0 +1,64 @@
+<div id="section-contacto" class="main">
+    <section class="contact" id="contact">
+      <div class="title1">
+        <h1 class="text-center">Contáctanos</h1>
+      </div>
+      <div class="title2">
+        <h5 class="text-center2">Queremos ayudarte a crecer y optimizar, diligencia el formulario:</h5>
+      </div>
+  
+      <div class="mb-3">
+        <div class="container text-center">
+          <div class="row form-container">
+            <!-- Columna izquierda: Nombre, Correo y Teléfono -->
+            <div class="col-12 col-md-6 left-column">
+              <input
+                type="text"
+                class="form-control first"
+                id="nameInput"
+                placeholder="Nombre completo"
+                [(ngModel)]="contact.name"
+                required
+              />
+              <input
+                type="email"
+                class="form-control first"
+                id="emailInput"
+                placeholder="Correo electrónico"
+                [(ngModel)]="contact.email"
+                required
+              />
+              <input
+                type="tel"
+                class="form-control first"
+                id="phoneInput"
+                placeholder="Número de teléfono"
+                [(ngModel)]="contact.phone"
+                required
+              />
+            </div>
+  
+            <!-- Columna derecha: Textarea -->
+            <div class="col-12 col-md-6 right-column">
+              <textarea
+                class="form-control second"
+                id="messageTextarea"
+                placeholder="Escribe tu mensaje"
+                rows="8"
+                [(ngModel)]="contact.message"
+                required
+              ></textarea>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn" (click)="onSubmit()">Enviar</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  

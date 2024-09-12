@@ -1,0 +1,20 @@
+
+<div id="section-whywe"  class="container">
+    <h1 class="main-title">¿Por qué elegir EQUIPMED?</h1>
+    <div class="parrafer">
+      <p class="main-paragraph">
+        EquipMed ofrece una gestión eficiente del mantenimiento de equipos médicos con automatización de procesos, seguimiento preciso y un servicio de alta calidad. Su interfaz intuitiva simplifica la administración, haciendo la gestión más ágil y sin complicaciones.
+      </p>
+      <button class="action-button">Haz clic aquí para saber más</button>
+    </div>
+  
+    <div class="boxes-container">
+      <div class="box" *ngFor="let item of items">
+       
+        <img [src]="item.imagePath" alt="Icono" class="box-icon">
+        <h2 class="box-title">{{ item.title }}</h2>
+        <p class="box-paragraph">{{ item.paragraph }}</p>
+      </div>
+    </div>
+  </div>
+  

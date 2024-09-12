@@ -1,0 +1,152 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  .container {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 3rem;
+    height: 750px;
+    position: relative;
+    z-index: 2; /* Asegura que esté por encima del fondo */
+
+
+  }
+  
+
+
+
+  .box-icon {
+    width: 50px;  /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+
+  h1 {
+    margin-top: 120px;
+    margin-bottom: 50px;
+    color: #1b1d62;
+  }
+  
+  .main-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .parrafer {
+    padding: 0px 14rem;
+    line-height: 2rem;
+    margin-bottom: 5rem;
+  }
+  
+  .action-button {
+    background-color: #0046e1; /* Fondo del botón */
+    color: #ffffff; /* Color del texto */
+    padding: 15px 100px;
+    border: 3px solid #0046e1; /* Borde del botón */
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0.1rem; /* Espacio arriba del botón */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #ffffff; /* Fondo blanco al pasar el cursor */
+    color: #050a30;
+  }
+  
+  .main-paragraph {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  /* Boxes Container */
+  .boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .box {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .box-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #1b1d62;
+  }
+  
+  .box-paragraph {
+    font-size: 1em;
+    color: #4b4b4b;
+  }
+  
+  /* Responsive Styles for Mobile */
+  @media (max-width: 768px) {
+    
+    .container{
+height: 1150px;
+clear: both; /* Evita que flote sobre otro contenido */
+margin-top: 20px; /* Ajusta según la distancia que necesites entre los componentes */
+
+
+    }
+    .main-title {
+      font-size: 20px;
+      margin-top: -10px;
+    }
+    .main-paragraph{
+        font-size: 0.9rem;
+        padding: 0rem 1rem;
+    }
+  
+    .parrafer {
+      padding: 0; /* Elimina el padding para móviles */
+      line-height: 1.5rem; /* Ajusta el interlineado para móviles */
+      margin-bottom: 3rem; /* Reduce el margen inferior */
+    }
+  
+    .action-button {
+      padding: 10px 50px; /* Reduce el padding para móviles */
+      font-size: 14px;
+    }
+  
+    .boxes-container {
+      gap: 10px;
+      padding: 0rem 1.2rem;
+    }
+  
+    .box {
+      width: 100%; /* Ajusta el ancho de los recuadros al 100% del contenedor */
+      padding: 15px; /* Reduce el padding para móviles */
+    }
+  
+    .box-title {
+      font-size: 1.1em;
+    }
+  
+    .box-paragraph {
+      font-size: 0.9em;
+    }
+  }
+  
