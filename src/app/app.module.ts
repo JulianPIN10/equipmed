@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -13,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { WhyWeComponent } from './why-we/why-we.component';
 import { WhatsappButtonComponent } from './whatsapp-button/whatsapp-button.component';
-import { ServicesComponent } from './services/services.component';
+import { ServicesComponent } from './services-company/services.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { TechnicalComponent } from './technical/technical.component';
@@ -22,7 +23,7 @@ import { Opcion1Component } from './opcion1/opcion1.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  
+
 
   //ruta del path de inicio (carga todos los componentes)
   { path: 'inicio', component: HomeComponent },
@@ -67,15 +68,16 @@ const routes: Routes = [
     UserComponent,
     Opcion1Component,
     WelcomeComponent
-     
-    
-   
+
+
+
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
