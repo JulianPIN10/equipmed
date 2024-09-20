@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { WhyWeComponent } from './why-we/why-we.component';
 import { WhatsappButtonComponent } from './whatsapp-button/whatsapp-button.component';
-import { ServicesComponent } from './services-company/services.component';
+import { ServicesComponent } from './services-company/services-company.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { TechnicalComponent } from './technical/technical.component';
