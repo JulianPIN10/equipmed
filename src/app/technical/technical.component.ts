@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonaService } from '../services/persona.service';
+import { ReporteService } from '../services/reporte.service';
 import { Persona } from '../models/persona';
+import { Reporte } from '../models/reporte';
 
 @Component({
   selector: 'app-technical',
@@ -15,11 +17,12 @@ export class TechnicalComponent {
   username: string = 'Usuario';
 
   listPersonas: Persona[] = [];
+  listReportes: Reporte[] = [];
 
   // Formulario reactivo
   technicalForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private _personaService: PersonaService) {
+  constructor(private fb: FormBuilder, private _personaService: PersonaService, private _reporteService: ReporteService ) {
      // Inicialización del formulario con validaciones
     this.technicalForm = this.fb.group({
       fechaRecepcion: ['', Validators.required],
@@ -43,13 +46,23 @@ export class TechnicalComponent {
   }
 
   ngOnInit(): void {
-    this.obtenerPersonas();
+    //this.obtenerPersonas();
+    this.obtenerReportes();
   }
 
   obtenerPersonas(){
     this._personaService.getPersonas().subscribe(data => {
       console.log(data);
       this.listPersonas = data;
+    }, (error: any) => {
+      console.log(error);
+    })
+  }
+
+  obtenerReportes(){
+    this._reporteService.getReportes().subscribe(data => {
+      console.log(data);
+      this.listReportes = data;
     }, (error: any) => {
       console.log(error);
     })

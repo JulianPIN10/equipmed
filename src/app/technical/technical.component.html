@@ -174,6 +174,36 @@
       <table>
         <thead>
           <tr>
+            <th>id_reporte</th>
+            <th>Descripcion Daño</th>
+            <th>Elaborado Por</th>
+            <th>Fecha Recepcion</th>
+            <th>Fecha Salida</th>
+            <th>Tipo Equipo</th>
+            <th>Modelo</th>
+            <th>Identificacion Daño</th>
+            <th>Marca</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reporte of listReportes">
+            <th>{{ reporte.id_reporte }}</th>
+            <th>{{ reporte.descripcion_dano }}</th>
+            <th>{{ reporte.elaborado_por }}</th>
+            <th>{{ reporte.fecha_recepcion }}</th>
+            <th>{{ reporte.fecha_salida }}</th>
+            <th>{{ reporte.tipo_equipo }}</th>
+            <th>{{ reporte.modelo }}</th>
+            <th>{{ reporte.identificacion_dano }}</th>
+            <th>{{ reporte.marca }}</th>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <table>
+        <thead>
+          <tr>
             <th>id_persona</th>
             <th>Nombre</th>
             <th>Apellido</th>
@@ -197,9 +227,7 @@
             <th>{{ persona.fecha_creacion }}</th>
             <th>{{ persona.usuario_creador }}</th>
           </tr>
-
         </tbody>
-
       </table>
     </ng-container>
   </div>
