@@ -1,7 +1,7 @@
 export class Reporte{
   id_reporte?: number;
-  id_usuario: number;
-  id_tecnico: number;
+  id_usuario?: number;
+  id_tecnico?: number;
   fecha_recepcion: Date;
   fecha_servicio: Date;
   fecha_salida: Date;

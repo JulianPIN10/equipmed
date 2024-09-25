@@ -49,14 +49,13 @@
     </ng-container>
     <ng-container *ngIf="selectedOption === 'option2'">
 
-
-
       <div class="form-container">
         <h1 class="titulo-opcion2">Formulario de Servicio Técnico</h1>
         <p class="parrafo-opcion2">Introduce los datos para generar reportes de los equipos, incluyendo número de serie, fecha y detalles clave.</p>
 
         <div class="container-opcion2">
-          <form [formGroup]="technicalForm" (ngSubmit)="onSubmit()">
+        <!--<form [formGroup]="technicalForm" (ngSubmit)="onSubmit()">-->
+          <form [formGroup]="technicalForm" (ngSubmit)="agregarReporte()">
             <!-- Información de las fechas -->
             <h3 class="titulo-3">1. Fechas</h3>
             <div class="row">
@@ -171,64 +170,36 @@
     </ng-container>
     <ng-container *ngIf="selectedOption === 'option3'">
       <p>Aqui ponen la tabla para mostrar lo de la base de datos</p>
-      <table>
+      <table class="styled-table" *ngIf="listReportes.length > 0">
         <thead>
           <tr>
-            <th>id_reporte</th>
-            <th>Descripcion Daño</th>
+            <th>Consecutivo</th>
+            <th>Direccion Cliente</th>
             <th>Elaborado Por</th>
             <th>Fecha Recepcion</th>
             <th>Fecha Salida</th>
             <th>Tipo Equipo</th>
             <th>Modelo</th>
-            <th>Identificacion Daño</th>
+            <th>Responsable del Equipo</th>
             <th>Marca</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let reporte of listReportes">
             <th>{{ reporte.id_reporte }}</th>
-            <th>{{ reporte.descripcion_dano }}</th>
+            <th>{{ reporte.direccion_cliente }}</th>
             <th>{{ reporte.elaborado_por }}</th>
             <th>{{ reporte.fecha_recepcion }}</th>
             <th>{{ reporte.fecha_salida }}</th>
             <th>{{ reporte.tipo_equipo }}</th>
             <th>{{ reporte.modelo }}</th>
-            <th>{{ reporte.identificacion_dano }}</th>
+            <th>{{ reporte.responsable_equipo }}</th>
             <th>{{ reporte.marca }}</th>
           </tr>
         </tbody>
 
       </table>
-
-      <table>
-        <thead>
-          <tr>
-            <th>id_persona</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Correo</th>
-            <th>Cedula</th>
-            <th>Rol</th>
-            <th>Password</th>
-            <th>Fecha Creacion</th>
-            <th>Usuario Creador</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let persona of listPersonas">
-            <th>{{ persona.id_persona }}</th>
-            <th>{{ persona.nombre }}</th>
-            <th>{{ persona.apellido }}</th>
-            <th>{{ persona.correo }}</th>
-            <th>{{ persona.cedula }}</th>
-            <th>{{ persona.rol }}</th>
-            <th>{{ persona.password }}</th>
-            <th>{{ persona.fecha_creacion }}</th>
-            <th>{{ persona.usuario_creador }}</th>
-          </tr>
-        </tbody>
-      </table>
+      <h5 style="text-align: start; margin-top: 10px;" *ngIf="listReportes.length == 0">No hay reportes para mostrar</h5>
     </ng-container>
   </div>
 </div>

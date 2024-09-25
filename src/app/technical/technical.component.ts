@@ -22,7 +22,9 @@ export class TechnicalComponent {
   // Formulario reactivo
   technicalForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private _personaService: PersonaService, private _reporteService: ReporteService ) {
+  constructor(private fb: FormBuilder,
+    private _personaService: PersonaService,
+    private _reporteService: ReporteService) {
      // Inicialización del formulario con validaciones
     this.technicalForm = this.fb.group({
       fechaRecepcion: ['', Validators.required],
@@ -85,13 +87,40 @@ export class TechnicalComponent {
     console.log('Cerrando sesión...');
   }
 
-   // Envío de formulario
-  onSubmit() {
-    if (this.technicalForm.valid) {
-      console.log('Formulario Enviado', this.technicalForm.value);
-       // Aquí podrías agregar lógica para enviar los datos del formulario a un servidor o procesarlos.
-    } else {
-      console.log('Formulario Inválido');
+  agregarReporte(){
+    const user=1;
+    const tecnico=1;
+    const identi_dano = "dano";
+    const descri_dano = "des dano";
+    const REPORTE: Reporte = {
+      id_usuario: user,
+      id_tecnico: tecnico,
+      fecha_recepcion: this.technicalForm.get('fechaRecepcion')?.value,
+      fecha_servicio: this.technicalForm.get('fechaServicio')?.value,
+      fecha_salida: this.technicalForm.get('fechaSalida')?.value,
+      cliente: this.technicalForm.get('cliente')?.value,
+      direccion_cliente: this.technicalForm.get('direccionCliente')?.value,
+      numero_reporte: this.technicalForm.get('numeroReporte')?.value,
+      tipo_equipo: this.technicalForm.get('tipoEquipo')?.value,
+      marca: this.technicalForm.get('marca')?.value,
+      modelo: this.technicalForm.get('modelo')?.value,
+      serie: this.technicalForm.get('serie')?.value,
+      ubicacion: this.technicalForm.get('ubicacion')?.value,
+      identificacion_dano: identi_dano,
+      descripcion_dano: descri_dano,
+      tipo_mantenimiento: this.technicalForm.get('tipoMantenimiento')?.value,
+      procedimiento_realizado: this.technicalForm.get('procedimiento')?.value,
+      observaciones: this.technicalForm.get('observaciones')?.value,
+      elaborado_por: this.technicalForm.get('elaboradoPor')?.value,
+      responsable_equipo: this.technicalForm.get('responsable')?.value
     }
+
+    console.log(REPORTE);
+    this._reporteService.guardarReporte(REPORTE).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+      this.technicalForm.reset();
+    })
   }
 }
