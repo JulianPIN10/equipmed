@@ -175,7 +175,7 @@
           <tr>
             <th>Consecutivo</th>
             <th>Direccion Cliente</th>
-            <th>Elaborado Por</th>
+            <th>id_usuario</th>
             <th>Fecha Recepcion</th>
             <th>Fecha Salida</th>
             <th>Tipo Equipo</th>
@@ -188,7 +188,7 @@
           <tr *ngFor="let reporte of listReportes">
             <th>{{ reporte.id_reporte }}</th>
             <th>{{ reporte.direccion_cliente }}</th>
-            <th>{{ reporte.elaborado_por }}</th>
+            <th>{{ reporte.id_usuario }}</th>
             <th>{{ reporte.fecha_recepcion }}</th>
             <th>{{ reporte.fecha_salida }}</th>
             <th>{{ reporte.tipo_equipo }}</th>

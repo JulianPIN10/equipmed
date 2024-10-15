@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,9 @@ export class LoginComponent {
   password: string = '';
   role: string = 'user'; // Valor inicial: usuario por defecto
   errorMessage: string = ''; // Para almacenar el mensaje de error
+  correo: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onRoleChange(): void {
     const container = document.querySelector('.login-container') as HTMLElement;
@@ -31,7 +33,31 @@ export class LoginComponent {
       this.errorMessage = 'Por favor, rellena todos los campos.';
       return;
     }
+    this.login();
+  }
 
+  //Validar datos de logueo para ingresar
+  login(): void {
+    const credentials = { correo: this.correo, password: this.password };
+
+    this.authService.login(credentials).subscribe(
+      response => {
+        // Almacenar el token JWT en el localStorage
+          this.authService.setToken(response.token);
+          this.router.navigate(['/sistema']); // Redirigir a una ruta protegida
+        },
+        error => {
+          this.errorMessage = 'Credenciales inválidas';
+        }
+      );
+    }
+
+    logout(): void {
+      this.authService.logout();
+      this.router.navigate(['/login']);
+    }
+
+    /*
     // Simulación de datos correctos para probar
     const validUser = { username: 'usuario123', password: '123', role: 'user' };
     const validTech = { username: 'tecnico123', password: '123', role: 'tech' };
@@ -56,6 +82,5 @@ export class LoginComponent {
       } else {
         this.errorMessage = 'Usuario o contraseña incorrectos.';
       }
-    }
-  }
+    }*/
 }
